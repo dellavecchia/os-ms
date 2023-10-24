@@ -1,0 +1,40 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+  order-service:
+    image: gabrieldellavecchia/order-service:1.0.0
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/os_db?autoReconnect=true&useSSL=false
+    networks:
+      - api-net
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    image: mysql
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    networks:
+      - api-net
+    environment:
+      MYSQL_DATABASE: os_db
+      MYSQL_ROOT_PASSWORD: 1234
+    ports:
+      - '3306:3306'
+
+  adminer:
+    image: adminer
+    restart: always
+    networks:
+      - api-net
+    ports:
+      - '8080:8080'
+
+
+networks:
+  api-net:
+    driver: bridge
