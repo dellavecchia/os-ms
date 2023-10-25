@@ -2,7 +2,7 @@ server:
   port: ${PORT:8000}
 spring:
   datasource:
-    url: jdbc:postgres://HdmIPdYhvrDvTHhKNr038M9sk5WDjUyT@dpg-cks4l97d47qs73ads5j0-a:5432/osmsdb
+    url: jdbc:postgresql://HdmIPdYhvrDvTHhKNr038M9sk5WDjUyT@dpg-cks4l97d47qs73ads5j0-a.oregon-postgres.render.com:5432/osmsdb
     username: root
     password: HdmIPdYhvrDvTHhKNr038M9sk5WDjUyT
 
