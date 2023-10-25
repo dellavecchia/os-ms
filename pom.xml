@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.dellavecchia</groupId>
-    <artifactId>os-ms</artifactId>
+    <artifactId>wo-ms</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>os-ms</name>
     <description>os-ms</description>
