@@ -32,14 +32,25 @@ public class DBService {
         Technician t4 = new Technician(null, "João Santos", "874.525.550-40", "+5599777755555");
         Technician t5 = new Technician(null, "Carlos Oliveira", "826.977.390-50", "+5599555544444");
         Technician t6 = new Technician(null, "Luiza Almeida", "946.143.940-78", "+5599444433333");
-        Client c1 = new Client(null, "Ivonir Della Vecchia Marques", "161.684.882-00", "(35) 99120-3731");
-        WO wo1 = new WO(null, "test create os", Priority.HIGH, Status.ONGOING, t1, c1);
+        Client c1 = new Client(null, "Maria da Silva de Oliveira", "012.524.980-20", "(35) 99120-3731");
+        Client c2 = new Client(null, "Pedro Nunes", "951.099.610-69", "(35) 99120-3731");
+        Client c3 = new Client(null, "Luiz Almeida", "829.484.440-39", "(35) 99120-3731");
+        WO wo1 = new WO(null, "change mother board", Priority.HIGH, Status.ONGOING, t1, c1);
+        WO wo2 = new WO(null, "Fix wather cooler", Priority.MEDIUM, Status.CLOSED, t2, c2);
+        WO wo3 = new WO(null, "Format system", Priority.LOW, Status.OPEN, t3, c2);
+        WO wo4 = new WO(null, "Increase memory", Priority.HIGH, Status.ONGOING, t3, c2);
+
 
         t1.getList().add(wo1);
+        t2.getList().add(wo2);
+        t3.getList().add(wo3);
         c1.getList().add(wo1);
+        c2.getList().add(wo2);
+        c2.getList().add(wo3);
+        c2.getList().add(wo4);
 
         technicianRepository.saveAll(Arrays.asList(t1, t2, t3, t4, t5, t6));
-        clientRepository.saveAll(Arrays.asList(c1));
-        woRepository.saveAll(Arrays.asList(wo1));
+        clientRepository.saveAll(Arrays.asList(c1, c2, c3));
+        woRepository.saveAll(Arrays.asList(wo1, wo2, wo3, wo4));
     }
 }

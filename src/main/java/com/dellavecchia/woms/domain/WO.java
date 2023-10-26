@@ -3,6 +3,7 @@ package com.dellavecchia.woms.domain;
 import com.dellavecchia.woms.domain.enums.Priority;
 import com.dellavecchia.woms.domain.enums.Status;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -23,9 +24,11 @@ public class WO {
     private String comments;
     private Integer priority;
     private Integer status;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "technician_id")
     private Technician technician;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
@@ -41,7 +44,7 @@ public class WO {
     public WO(Integer id,
               String comments, Priority priority, Status status, Technician technician, Client client) {
         this.id = id;
-        this.setOpeningDate(LocalDateTime.now());
+        this.openingDate = LocalDateTime.now();
         this.comments = comments;
         this.priority = (priority == null) ? 0 : priority.getCod();
         this.status = (status == null) ? 0 : status.getCod();

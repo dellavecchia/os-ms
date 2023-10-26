@@ -1,6 +1,8 @@
 package com.dellavecchia.woms.dtos;
 
 import com.dellavecchia.woms.domain.WO;
+import com.dellavecchia.woms.domain.enums.Priority;
+import com.dellavecchia.woms.domain.enums.Status;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.validation.constraints.NotEmpty;
@@ -76,16 +78,16 @@ public class WOMS implements Serializable {
         this.comments = comments;
     }
 
-    public Integer getPriority() {
-        return priority;
+    public Priority getPriority() {
+        return Priority.toEnum(this.status);
     }
 
     public void setPriority(Integer priority) {
         this.priority = priority;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Status getStatus() {
+        return Status.toEnum(this.status);
     }
 
     public void setStatus(Integer status) {

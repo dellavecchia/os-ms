@@ -27,6 +27,7 @@ public class Technician extends Person implements Serializable {
     }
 
     public void setList(List<WO> list) {
+
         this.list = list;
     }
 }

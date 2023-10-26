@@ -1,11 +1,14 @@
 package com.dellavecchia.woms.dtos;
 
 import com.dellavecchia.woms.domain.Technician;
+import com.dellavecchia.woms.domain.WO;
 import jakarta.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TechnicianDTO implements Serializable {
     @Serial
@@ -20,6 +23,7 @@ public class TechnicianDTO implements Serializable {
     private String cpf;
     @NotEmpty(message = "The PHONE field is required")
     private String phone;
+    private List<WO> list = new ArrayList<>();
 
     public TechnicianDTO() {
         super();
@@ -29,6 +33,7 @@ public class TechnicianDTO implements Serializable {
         this.id = obj.getId();
         this.name = obj.getName();
         this.cpf = obj.getCpf();
+        this.list = obj.getList();
         this.phone = obj.getPhone();
     }
 
@@ -58,6 +63,14 @@ public class TechnicianDTO implements Serializable {
 
     public String getPhone() {
         return phone;
+    }
+
+    public List<WO> getList() {
+        return list;
+    }
+    public void setList(List<WO> list) {
+
+        this.list = list;
     }
 
     public void setPhone(String phone) {

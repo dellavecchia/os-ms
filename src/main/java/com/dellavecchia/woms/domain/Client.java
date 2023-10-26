@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 public class Client extends Person {
 
-    @OneToMany(mappedBy = "technician")
+    @OneToMany(mappedBy = "client")
     private List<WO> list = new ArrayList<>();
     public Client() {
         super();
@@ -17,8 +17,6 @@ public class Client extends Person {
     public Client(Integer id, String name, String cpf, String phone) {
         super(id, name, cpf, phone);
     }
-
-
 
     public List<WO> getList() {
         return list;
