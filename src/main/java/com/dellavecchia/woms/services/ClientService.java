@@ -8,6 +8,7 @@ import com.dellavecchia.woms.repositories.PersonRepository;
 import com.dellavecchia.woms.services.exceptions.DataIntegrityViolationException;
 import com.dellavecchia.woms.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public class ClientService {
 
     public List<Client> findAll() {
 
-        return clientRepository.findAll();
+        return clientRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
 

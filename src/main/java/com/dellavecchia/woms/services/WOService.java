@@ -7,6 +7,7 @@ import com.dellavecchia.woms.dtos.WOMS;
 import com.dellavecchia.woms.repositories.WORepository;
 import com.dellavecchia.woms.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -31,7 +32,7 @@ public class WOService {
 
 
     public List<WO> findAll() {
-        return repository.findAll();
+        return repository.findAll(Sort.by(Sort.Direction.ASC, "id"));
 
     }
 
