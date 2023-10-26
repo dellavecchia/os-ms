@@ -8,9 +8,11 @@ import com.dellavecchia.woms.repositories.TechnicianRepository;
 import com.dellavecchia.woms.services.exceptions.DataIntegrityViolationException;
 import com.dellavecchia.woms.services.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -29,7 +31,7 @@ public class TechnicianService {
     }
 
     public List<Technician> findAll() {
-        return technicianRepository.findAll();
+        return technicianRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
 
@@ -44,7 +46,7 @@ public class TechnicianService {
 
     public Technician update(Integer id, TechnicianDTO objDTO) {
         Technician oldObj = findById(id);
-        if (findByCPF(objDTO) != null && findByCPF(objDTO).getId() != id){
+        if (findByCPF(objDTO) != null && Objects.requireNonNull(findByCPF(objDTO)).getId() != id){
             throw new DataIntegrityViolationException("This CPF already exists in the database!");
         }
         oldObj.setName(objDTO.getName());
