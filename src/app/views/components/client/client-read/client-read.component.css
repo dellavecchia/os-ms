@@ -1,0 +1,35 @@
+.create {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .create h1 {
+    text-align: left;
+    font-size: 2.3rem;
+  
+  }
+  .create button {
+  
+    width: 20%;
+    margin: 1rem auto;
+    /* border: 1px solid rgb(127, 125, 128);
+    border-radius: 0.5rem; */
+  }
+  
+  
+  .container {
+      width: 90%;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    table {
+      width: 100%;
+    }
+    
+    #edit {
+      color: rgb(213, 213, 213)
+    }
+    #delete {
+      color: rgb(218, 114, 114);
+      margin-left: 1rem;
+    }

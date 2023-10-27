@@ -1,0 +1,20 @@
+.container{
+    height: 83%;
+}
+.align-1 {
+    position: relative;
+    top: -5px;
+}
+
+i {
+    margin-right: 1rem;
+}
+
+
+
+
+
+
+button {
+    margin: 1rem auto 0 1 1rem;
+}

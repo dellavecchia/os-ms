@@ -1,0 +1,48 @@
+<div class="container">
+    <h1>Updating a work order</h1>
+      <div class="labels">
+          <mat-form-field>
+              <mat-label>Select a Technician</mat-label>
+              <mat-select [(value)]="wo.technician">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let tec of technicians" value="{{tec.id}}">{{tec.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-label>Select a Client</mat-label>
+              <mat-select [(value)]="wo.client">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let cli of clients" value="{{cli.id}}">{{cli.name}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-label>Select a status</mat-label>
+              <mat-select [(value)]="wo.status">
+                <mat-option>None</mat-option>
+                <mat-option value="0">OPEN</mat-option>
+                <mat-option value="1">ONGOING</mat-option>
+                <mat-option value="2">CLOSED</mat-option>
+              </mat-select>
+            </mat-form-field>
+  
+            <mat-form-field>
+              <mat-label>Select a priority</mat-label>
+              <mat-select [(value)]="wo.priority">
+                <mat-option>None</mat-option>
+                <mat-option value="0">LOW</mat-option>
+                <mat-option value="1">MEDIUM</mat-option>
+                <mat-option value="2">HIGH</mat-option>
+              </mat-select>
+            </mat-form-field>
+      </div>
+      <form class="form">
+        <mat-form-field class="full-width">
+          <mat-label>Add the work order comments</mat-label>
+          <textarea [(ngModel)]="wo.comments" name="comments" matInput maxlength="255"></textarea>
+        </mat-form-field>
+      </form>
+      <button (click)="update()" class="mat-elevation-z8" mat-stroked-button color="accent">UPDATE</button>
+      <button (click)="cancel()" class="mat-elevation-z8" mat-stroked-button color="warn">CANCEL</button>
+  </div>
